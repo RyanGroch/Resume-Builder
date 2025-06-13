@@ -1,0 +1,163 @@
+{
+  "summaries": {
+    "broad": "To leverage my diverse skill set in computer science and explore opportunities across various technology domains, such as mainframes and web development."
+  },
+  "skills": {
+    "asm": "S/370 Assembly",
+    "cob": "COBOL",
+    "jcl": "JCL",
+    "py": "Python",
+    "bash": "Bash",
+    "web": "HTML/CSS/JavaScript/TypeScript",
+    "c": "C/C++",
+    "java": "Java",
+    "php": "PHP",
+    "sql": "SQL",
+    "c#": "C#",
+    "rs": "Rust",
+    "react": "React.js",
+    "next": "Next.js",
+    "laravel": "Laravel",
+    "tailwind": "TailwindCSS",
+    "ispf": "ISPF (Vista TN3270 Terminal Emulator)",
+    "zowe": "Zowe",
+    "git": "Git",
+    "gh": "GitHub",
+    "linux": "Linux"
+  },
+  "projects": {
+    "retjobs": {
+      "title": "Retrieve Jobs",
+      "date": "May 2024 - December 2024",
+      "link": "github.com/ryangroch/retrieve-jobs",
+      "href": "https://github.com/ryangroch/retrieve-jobs",
+      "tech": "Next.js, TypeScript, React.js, TailwindCSS, Rust",
+      "points": {
+        "overview": "Developed a web application enabling users to interact with mainframe held queues by listing, downloading, and purging job outputs via FTP.",
+        "users": "Successfully serves the needs of 100+ users, maintaining consistent uptime with no reported issues.",
+        "crypto": "Uses AES-256 encryption to store mainframe credentials in a non-plaintext format.",
+        "deployment": "Easily deploys to several serverless environments with no configuration.",
+        "desktop": "Developed a cross-platform desktop version using Rust, so that users have the choice of using a web or desktop app."
+      }
+    },
+    "autoscript": {
+      "title": "Autoscript",
+      "date": "January 2024 - May 2024",
+      "link": "github.com/RyanGroch/autoscript",
+      "href": "https://github.com/RyanGroch/autoscript/",
+      "tech": "Shell Script (Bash)",
+      "points": {
+        "overview": "Developed a tool to speed up the workflows of introductory programming students by automating keystrokes into a terminal.",
+        "docs": "Wrote 3,500+ words of documentation, including installation instructions and examples.",
+        "spec": "Discussed the specification with a professor to ensure that the program met his requirements."
+      }
+    },
+    "lightspeed": {
+      "title": "Ecommerce Store",
+      "date": "January 2023 - Present",
+      "link": "lightspeedtriggers.com",
+      "href": "https://lightspeedtriggers.com",
+      "tech": "PHP, Laravel, TypeScript, React.js, Stripe API, Linux",
+      "points": {
+        "overview": "Developed a full-stack web application which allows users to create customized versions of a product with interchangable options.",
+        "stripe": "Integrated Stripe API for payment transactions.",
+        "deployment": "Deployed the project to a Linux server via SSH."
+      }
+    },
+    "imgcrop": {
+      "title": "Image Cropper",
+      "date": "March 2023",
+      "link": "ryan-groch.github.io/image-cropper/",
+      "href": "https://ryan-groch.github.io/image-cropper/",
+      "tech": "HTML/CSS, Vanilla TypeScript",
+      "points": {
+        "overview": "Wrote an algorithm in TypeScript to crop an image in a circular pattern.",
+        "canvas": "Utilized HTML canvas for image processing.",
+        "deployment": "Used GitHub Actions for automatic deployment."
+      }
+    },
+    "othello": {
+      "title": "Othello AI",
+      "date": "April 2022 - November 2022",
+      "link": "ryangroch.github.io/othello-ai-v2/",
+      "href": "https://ryangroch.github.io/othello-ai-v2/",
+      "tech": "TypeScript, React.js",
+      "points": {
+        "overview": "Implemented the rules of the Othello game in Typescript, and created a UI with React.js.",
+        "minimax": "Used the minimax algorithm with alpha-beta pruning to create an AI that demonstrates a reasonable quality of play.",
+        "webworkers": "Made use of web workers and asynchronous programming to avoid freezing the UI as the algorithm performs computations.",
+        "deployment": "Used GitHub actions to automatically redeploy the app on each new commit."
+      }
+    },
+    "sudoku": {
+      "title": "Sudoku Generator",
+      "date": "March 2022",
+      "link": "ryangroch.github.io/sudoku-v2/",
+      "href": "https://ryangroch.github.io/sudoku-v2/",
+      "tech": "TypeScript, React.js",
+      "points": {
+        "overview": "Used recursive backtracking to write algorithms to generate and solve random Sudoku puzzles.",
+        "ui": "Created a user interface to allow the user to play through the puzzles.",
+        "utils": "Implemented common utilities into the game such as undoing previous moves and taking notes.",
+        "deployment": "Used GitHub actions to automatically redeploy the app on each new commit."
+      }
+    }
+  },
+  "experience": {
+    "ta": {
+      "title": "Teaching Assistant - Assembly Language/COBOL",
+      "title2": "Teaching Assistant - Assembly Language (S/370) and Enterprise Application Environments (JCL, COBOL, S/370)",
+      "employer": "Northern Illinois University",
+      "date": "August 2024 - May 2025",
+      "points": {
+        "teach": "Provided individualized instruction and support to students.",
+        "teach2": {
+          "main": "Provided individualized instruction to students as needed. Assisted students with issues such as:",
+          "debug": "Learning how to debug.",
+          "ispf": "Learning to use ISPF.",
+          "abends": "ABENDs (in both COBOL and Assembly) and JCL errors.",
+          "software": "Software installation (Vista TN3270, Zowe)."
+        },
+        "respond": "Answered student inquiries and communicated via email or video/voice calls.",
+        "grade": "Graded all programming assignments.",
+        "software": "Installing software required for the course."
+      }
+    }
+  },
+  "education": {
+    "compscibs": {
+      "degree": "B.S. in Computer Science",
+      "institution": "Northern Illinois University",
+      "location": "Palatine, IL (Harper College)",
+      "date": "January 2024 - May 2025",
+      "notation": "custom",
+      "points": {
+        "main": "Relevant Coursework:",
+        "asm": "Intro to Assembly Language (S/370).",
+        "enterprise": "Enterprise Application Environments (JCL, COBOL, High-Level Assembly).",
+        "os": {
+          "main": "Operating Systems.",
+          "java": "Includes writing a mock operating system in Java with a process scheduler and access controls.",
+          "asm": "Includes writing programs in a fictional assembly language to demonstrate the functionality of the operating system."
+        },
+        "databases": "Databases (SQL).",
+        "unix": "Unix \\& Networking (Bash, Linux).",
+        "c": "Introductory \\& Intermediate C++"
+      }
+    },
+    "psycbs": {
+      "degree": "B.S. in Psychology",
+      "institution": "Northern Illinois University",
+      "location": "DeKalb, IL",
+      "date": "August. 2017 - December. 2020",
+      "notation": "standard",
+      "points": {
+        "gpa": "GPA: 4.0; Graduated with honors; summa cum laude.",
+        "courses": "Relevant Coursework: Data Science (Python & R), Probability & Statistics, Calculus I - Calculus III.",
+        "phil": "Minor in philosophy",
+        "lab": "Worked in a university neuroscience lab (August 2019 - March 2020).",
+        "band": "Participated in eight years of marching band (high school & college)."
+      }
+    }
+  }
+}
