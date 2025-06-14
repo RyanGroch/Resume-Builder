@@ -1,0 +1,56 @@
+{
+  "standard": {
+    "summary": "broad",
+    "skills": {
+      "languages": {
+        "name": "Languages",
+        "content": [
+          "web",
+          "typescript",
+          "asm",
+          "py",
+          "php",
+          "bash",
+          "c",
+          "rust",
+          "sql"
+        ]
+      },
+      "libraries": {
+        "name": "Frameworks and Libraries",
+        "content": ["react", "next", "laravel", "tailwind"]
+      },
+      "tech": {
+        "name": "Other Technologies",
+        "content": ["git", "gh", "linux", "ispf"]
+      }
+    },
+    "projects": [
+      {
+        "name": "retjobs",
+        "exclude": []
+      },
+      {
+        "name": "lightspeed",
+        "exclude": []
+      }
+    ],
+    "experience": [
+      {
+        "name": "ta",
+        "title": "title",
+        "exclude": ["teach2"]
+      }
+    ],
+    "education": [
+      {
+        "name": "compscibs",
+        "exclude": []
+      },
+      {
+        "name": "psycbs",
+        "exclude": []
+      }
+    ]
+  }
+}
