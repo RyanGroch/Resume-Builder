@@ -155,10 +155,10 @@
       "notation": "standard",
       "points": {
         "gpa": "GPA: 4.0; Graduated with honors; summa cum laude.",
-        "courses": "Relevant Coursework: Data Science (Python & R), Probability & Statistics, Calculus I - Calculus III.",
+        "courses": "Relevant Coursework: Data Science (Python \\& R), Probability \\& Statistics, Calculus I - Calculus III.",
         "phil": "Minor in philosophy",
         "lab": "Worked in a university neuroscience lab (August 2019 - March 2020).",
-        "band": "Participated in eight years of marching band (high school & college)."
+        "band": "Participated in eight years of marching band (high school \\& college)."
       }
     }
   }
