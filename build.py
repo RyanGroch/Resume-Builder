@@ -3,6 +3,7 @@ import json
 import os
 import shutil
 import subprocess
+from pathlib import Path
 
 SECTION_NAMES = [
     "summary",
@@ -12,7 +13,10 @@ SECTION_NAMES = [
     "education"
 ]
 
-edu_template = """
+RESUME_TEMPL = Path("templates/resume-template.txt").read_text()
+SECTION_TEMPL = Path("templates/section-template.txt").read_text()
+
+EDU_TEMPL = """\
 \cventry
   {{{0}}} % Degree
   {{{1}}} % Institution
@@ -23,6 +27,8 @@ edu_template = """
       \\end{{cvitems}}
     }}
 """
+
+IMPORT_TOKEN = "\input{{resume/{name}.tex}}\n"
 
 edu_std_point = "\n        \item {{{0}}}"
 edu_custom_1 = "\n         {0} \\newline"
@@ -44,26 +50,26 @@ def main():
 
     recipe = recipes[recipe_name]
 
-    shutil.rmtree("build")
+    shutil.rmtree("build", ignore_errors=True)
     os.makedirs("build/resume", exist_ok=True)
     shutil.copyfile("templates/awesome-cv.cls", "build/awesome-cv.cls")
 
     with open("build/resume.tex", "w") as out_file:
-        with open("templates/resume-start.txt", "r") as in_file:
-            out_file.write(in_file.read())
+        content = ""
 
-            for key in SECTION_NAMES:
-                if recipe[key]:
-                    out_file.write(f"\input{{resume/{key}.tex}}\n")
-
-            out_file.write("\n\end{document}\n")
+        for section in SECTION_NAMES:
+            if recipe[section]:
+                content += IMPORT_TOKEN.format(name=section)
+        
+        out_file.write(RESUME_TEMPL.format(content=content))
 
     if recipe["summary"]:
-        summary = data["summaries"][recipe["summary"]]
         with open("build/resume/summary.tex", "w") as out_file:
-            out_file.write("\\cvsection{Objective}\n\n\\begin{cvparagraph}\n" 
-                            + summary
-                            + "\n\\end{cvparagraph}\n")
+            out_file.write(SECTION_TEMPL.format(
+                section_name="Objective",
+                section_type="cvparagraph",
+                content=data["summaries"][recipe["summary"]])
+            )
 
 
     with open("build/resume/skills.tex", "w") as out_file:
@@ -152,7 +158,7 @@ def main():
                         else:
                             points_str += edu_custom_3.format(subvalue)
 
-            out_file.write(edu_template.format(
+            out_file.write(EDU_TEMPL.format(
                 education["degree"],
                 education["institution"],
                 education["location"],

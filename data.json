@@ -132,6 +132,17 @@
       "institution": "Northern Illinois University",
       "location": "Palatine, IL (Harper College)",
       "date": "January 2024 - May 2025",
+      "notation": "standard",
+      "points": {
+        "gpa": "GPA: 4.0; Graduated with honors; summa cum laude.",
+        "courses": "Relevant Coursework: Programming in C++, Unix \\& Networking"
+      }
+    },
+    "compscibs2": {
+      "degree": "B.S. in Computer Science",
+      "institution": "Northern Illinois University",
+      "location": "Palatine, IL (Harper College)",
+      "date": "January 2024 - May 2025",
       "notation": "custom",
       "points": {
         "main": "Relevant Coursework:",

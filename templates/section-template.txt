@@ -1,0 +1,7 @@
+\cvsection{{{section_name}}}
+
+\begin{{{section_type}}}
+
+{content}
+
+\end{{{section_type}}}
