@@ -1,0 +1,11 @@
+\cventry
+  {{\href{{{href}}}{{{link}}}}} % Job title
+  {{{name}}} % Organization
+  {{{date}}} % Location
+  {{}} % Date(s)
+  {{
+    \begin{{cvitems}} % Description(s) of tasks/responsibilities
+        {content}
+    \end{{cvitems}}
+  }}
+

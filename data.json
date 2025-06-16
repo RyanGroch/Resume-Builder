@@ -29,7 +29,7 @@
   },
   "projects": {
     "retjobs": {
-      "title": "Retrieve Jobs",
+      "name": "Retrieve Jobs",
       "date": "May 2024 - December 2024",
       "link": "github.com/ryangroch/retrieve-jobs",
       "href": "https://github.com/ryangroch/retrieve-jobs",
@@ -43,7 +43,7 @@
       }
     },
     "autoscript": {
-      "title": "Autoscript",
+      "name": "Autoscript",
       "date": "January 2024 - May 2024",
       "link": "github.com/RyanGroch/autoscript",
       "href": "https://github.com/RyanGroch/autoscript/",
@@ -55,7 +55,7 @@
       }
     },
     "lightspeed": {
-      "title": "Ecommerce Store",
+      "name": "Ecommerce Store",
       "date": "January 2023 - Present",
       "link": "lightspeedtriggers.com",
       "href": "https://lightspeedtriggers.com",
@@ -67,7 +67,7 @@
       }
     },
     "imgcrop": {
-      "title": "Image Cropper",
+      "name": "Image Cropper",
       "date": "March 2023",
       "link": "ryan-groch.github.io/image-cropper/",
       "href": "https://ryan-groch.github.io/image-cropper/",
@@ -79,7 +79,7 @@
       }
     },
     "othello": {
-      "title": "Othello AI",
+      "name": "Othello AI",
       "date": "April 2022 - November 2022",
       "link": "ryangroch.github.io/othello-ai-v2/",
       "href": "https://ryangroch.github.io/othello-ai-v2/",
@@ -92,7 +92,7 @@
       }
     },
     "sudoku": {
-      "title": "Sudoku Generator",
+      "name": "Sudoku Generator",
       "date": "March 2022",
       "link": "ryangroch.github.io/sudoku-v2/",
       "href": "https://ryangroch.github.io/sudoku-v2/",
@@ -107,8 +107,8 @@
   },
   "experience": {
     "ta": {
-      "title": "Teaching Assistant - Assembly Language/COBOL",
-      "title2": "Teaching Assistant - Assembly Language (S/370) and Enterprise Application Environments (JCL, COBOL, S/370)",
+      "name": "Teaching Assistant - Assembly Language/COBOL",
+      "name2": "Teaching Assistant - Assembly Language (S/370) and Enterprise Application Environments (JCL, COBOL, S/370)",
       "employer": "Northern Illinois University",
       "date": "August 2024 - May 2025",
       "points": {

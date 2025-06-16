@@ -15,6 +15,8 @@ SECTION_NAMES = [
 
 RESUME_TEMPL = Path("templates/resume-template.txt").read_text()
 SECTION_TEMPL = Path("templates/section-template.txt").read_text()
+PROJECT_TEMPL = Path("templates/project-template.txt").read_text()
+EXP_TEMPL = Path("templates/experience-template.txt").read_text()
 
 EDU_TEMPL = """\
 \cventry
@@ -29,6 +31,10 @@ EDU_TEMPL = """\
 """
 
 IMPORT_TOKEN = "\input{{resume/{name}.tex}}\n"
+BOLD_ITEM_TOKEN = "\\textbf{{{skill_category}}}: {content}"
+BOLD_ITEM_NEWLINE_TOKEN = f"{BOLD_ITEM_TOKEN} \\\\\n"
+BULLET_ITEM_TOKEN = "\\item {{{item}}}"
+INDENTED_BULLET_ITEM_TOKEN = "\hspace{{1mm}} \\bullet \hspace{{1mm}} {item} \\newline"
 
 edu_std_point = "\n        \item {{{0}}}"
 edu_custom_1 = "\n         {0} \\newline"
@@ -73,72 +79,99 @@ def main():
 
 
     with open("build/resume/skills.tex", "w") as out_file:
-        out_file.write("\cvsection{Skills}\n\n\\begin{cvparagraph}\n\n")
-
+        skills_str = ""
         for i, section in enumerate(recipe["skills"]):
-            out_file.write(f"\\textbf{{{section['name']}:}} ")
+            curr_skill_str = ""
 
             for j, skill in enumerate(section["content"]):
                 if j != 0:
-                    out_file.write(", ")
+                    curr_skill_str += ", "
 
-                out_file.write(data["skills"][skill])
+                curr_skill_str += data["skills"][skill]
 
-            if i < len(recipe["skills"]) - 1:
-                out_file.write(" \\\\")
+            token = BOLD_ITEM_NEWLINE_TOKEN \
+                if i != len(recipe["skills"]) - 1 \
+                else BOLD_ITEM_TOKEN
 
-            out_file.write("\n")
+            skills_str += token.format(
+                skill_category=section["name"],
+                content=curr_skill_str
+            )
 
-        out_file.write("\n\end{cvparagraph}\n")
-
+        out_file.write(SECTION_TEMPL.format(
+            section_name="Skills",
+            section_type="cvparagraph",
+            content=skills_str
+        ))
 
     with open("build/resume/projects.tex", "w") as out_file:
-        out_file.write("\cvsection{Projects}\n\n\\begin{cventries}\n\n")
+        projects_str = ""
         
         for project_recipe in recipe["projects"]:
             project = data["projects"][project_recipe['name']]
-            out_file.write(f"\\cventry\n{{\href{{{project['href']}}}{{{project['link']}}}}}\n")
-            out_file.write(f"{{{project['title']}}}\n{{{project['date']}}}\n{{}}\n")
+            project_items_str = ""
 
-            out_file.write("{\n  \\begin{cvitems}\n")
+            if project["tech"]:
+                project_items_str += BULLET_ITEM_TOKEN.format(
+                    item=BOLD_ITEM_TOKEN.format(
+                        skill_category="Technologies:",
+                        content=project["tech"]
+                    )
+                ) + "\n" + 8 * " "
 
-            out_file.write("    \\item {\\textbf{Technologies:} " + project['tech'] + "}\n")
-
-            for key, value in project["points"].items():
+            for i, (key, value) in enumerate(project["points"].items()):
                 if key not in project_recipe["exclude"]:
-                    out_file.write(f"    \\item {{{value}}}\n")
+                    curr_proj_str = BULLET_ITEM_TOKEN.format(item=value)
 
-            out_file.write("  \\end{cvitems}\n}\n\n")
+                    if i < len(project["points"]) - 1:
+                        curr_proj_str += "\n"
+                    
+                    project_items_str += curr_proj_str + 8 * " "
 
-        out_file.write("\end{cventries}\n")
+            projects_str += PROJECT_TEMPL.format(
+                href=project["href"],
+                link=project["link"],
+                name=project["name"],
+                date=project["date"],
+                content=(project_items_str)
+            )
+
+        out_file.write(SECTION_TEMPL.format(
+            section_name="Projects",
+            section_type="cventries",
+            content=projects_str
+        ))
 
 
     with open("build/resume/experience.tex", "w") as out_file:
-        out_file.write("\cvsection{Work Experience}\n\n\\begin{cventries}\n\n")
-
+        exp_str = ""
         for experience_recipe in recipe["experience"]:
             experience = data["experience"][experience_recipe["name"]]
-            title = experience[experience_recipe["title"]]
-
-            out_file.write(f"  \\cventry\n    {{{title}}}\n    {{{experience['employer']}}}\n    {{}}\n    {{{experience['date']}}}\n"
-                          + "    {\n      \\begin{cvitems}")
+            curr_exp_str = ""
             
             for key, value in experience["points"].items():
                 if key not in experience_recipe["exclude"]:
                     if isinstance(value, dict):
                         for subval in value.values():
-                            out_file.write("\n        \hspace{1mm} \\bullet \hspace{1mm} {"
-                                        + subval + "} \\newline")
+                            curr_exp_str += INDENTED_BULLET_ITEM_TOKEN.format(item=subval)
                     else:
-                        out_file.write("\n        \item {" + value + "} \\newline")
+                        curr_exp_str += BULLET_ITEM_TOKEN.format(item=value) + "\\\\newline"
 
-            out_file.write("\n      \end{cvitems}\n    }\n\n")
+            exp_str += EXP_TEMPL.format(
+                name=experience["name"],
+                employer=experience["employer"],
+                date=experience["date"],
+                content=curr_exp_str
+            )
 
-        out_file.write("\end{cventries}\n")
+        out_file.write(SECTION_TEMPL.format(
+            section_name="Experience",
+            section_type="cventries",
+            content=exp_str
+        ))
 
     
     with open("build/resume/education.tex", "w") as out_file:
-        out_file.write("\cvsection{Education}\n\n\\begin{cventries}\n")
         for education_recipe in recipe["education"]:
             education = data["education"][education_recipe["name"]]
 
@@ -158,15 +191,19 @@ def main():
                         else:
                             points_str += edu_custom_3.format(subvalue)
 
-            out_file.write(EDU_TEMPL.format(
-                education["degree"],
-                education["institution"],
-                education["location"],
-                education["date"],
-                points_str
-            ))
-
-        out_file.write("\n\\end{cventries}\n")
+            out_file.write(
+                SECTION_TEMPL.format(
+                    section_name="Education",
+                    section_type="cventries",
+                    content=EDU_TEMPL.format(
+                        education["degree"],
+                        education["institution"],
+                        education["location"],
+                        education["date"],
+                        points_str
+                    )
+                )
+            )
 
     subprocess.run(["xelatex", "resume.tex"], cwd="./build")
 

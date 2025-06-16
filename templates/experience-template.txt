@@ -1,0 +1,10 @@
+\cventry
+  {{{name}}}
+  {{{employer}}}
+  {{}}
+  {{{date}}}
+  {{
+    \begin{{cvitems}}
+        {content}
+    \end{{cvitems}}
+  }}
