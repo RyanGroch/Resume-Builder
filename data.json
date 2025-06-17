@@ -113,8 +113,8 @@
       "date": "August 2024 - May 2025",
       "points": {
         "teach": "Provided individualized instruction and support to students.",
+        "preteach2": "Provided individualized instruction to students as needed. Assisted students with issues such as:",
         "teach2": {
-          "main": "Provided individualized instruction to students as needed. Assisted students with issues such as:",
           "debug": "Learning how to debug.",
           "ispf": "Learning to use ISPF.",
           "abends": "ABENDs (in both COBOL and Assembly) and JCL errors.",
@@ -145,17 +145,19 @@
       "date": "January 2024 - May 2025",
       "notation": "custom",
       "points": {
-        "main": "Relevant Coursework:",
-        "asm": "Intro to Assembly Language (S/370).",
-        "enterprise": "Enterprise Application Environments (JCL, COBOL, High-Level Assembly).",
-        "os": {
-          "main": "Operating Systems.",
-          "java": "Includes writing a mock operating system in Java with a process scheduler and access controls.",
-          "asm": "Includes writing programs in a fictional assembly language to demonstrate the functionality of the operating system."
-        },
-        "databases": "Databases (SQL).",
-        "unix": "Unix \\& Networking (Bash, Linux).",
-        "c": "Introductory \\& Intermediate C++"
+        "precoursework": "Relevant Coursework:",
+        "coursework": {
+          "asm": "Intro to Assembly Language (S/370).",
+          "enterprise": "Enterprise Application Environments (JCL, COBOL, High-Level Assembly).",
+          "preos": "Operating Systems.",
+          "os": {
+            "java": "Includes writing a mock operating system in Java with a process scheduler and access controls.",
+            "asm": "Includes writing programs in a fictional assembly language to demonstrate the functionality of the operating system."
+          },
+          "databases": "Databases (SQL).",
+          "unix": "Unix \\& Networking (Bash, Linux).",
+          "c": "Introductory \\& Intermediate C++"
+        }
       }
     },
     "psycbs": {

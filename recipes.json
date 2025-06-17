@@ -39,17 +39,17 @@
       {
         "name": "ta",
         "title": "title",
-        "exclude": ["teach2"]
+        "exclude": ["preteach2", "teach2"]
       }
     ],
     "education": [
       {
-        "name": "compscibs",
+        "name": "compscibs2",
         "exclude": []
       },
       {
         "name": "psycbs",
-        "exclude": []
+        "exclude": ["lab"]
       }
     ]
   }
