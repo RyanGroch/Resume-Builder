@@ -1,0 +1,11 @@
+\cventry
+  {{{degree}}} % Degree
+  {{{institution}}} % Institution
+    {{{location}}} % Location
+    {{{date}}} % Date(s)
+    {{
+      \begin{{cvitems}} % Description(s) bullet points
+        {content}
+      \end{{cvitems}}
+    }}
+
