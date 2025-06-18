@@ -35,15 +35,21 @@ PARAGRAPH = "cvparagraph"
 ENTRIES = "cventries"
 
 
-def render_indented_points(point, indent_level, exclude):
+def render_indented_points(point, indent_level, include, exclude):
     if isinstance(point, dict):
+        loop_thru = point.items() if include is None else [
+            (key, point[key]) for key in include 
+            if point.get(key) is not None
+        ] 
+
         return NEWLINE_TOKEN.join([
             render_indented_points(
                 value, 
                 indent_level + 1, 
+                include,
                 exclude
             )
-            for key, value in point.items()
+            for key, value in loop_thru
             if key not in exclude
         ])
     
@@ -79,7 +85,13 @@ def build_projects(recipe):
         
     for project_recipe in recipe["projects"]:
         project = DATA["projects"][project_recipe['name']]
-        points = render_indented_points(project["points"], -1, project_recipe["exclude"])
+
+        points = render_indented_points(
+            project["points"],
+            -1, 
+            project_recipe.get("include"),
+            project_recipe.get("exclude")
+        )
 
         if project["tech"]:
             tech = BULLET_ITEM_TOKEN.format(
@@ -111,7 +123,8 @@ def build_experience(recipe):
         points_str = render_indented_points(
             experience["points"],
             -1,
-            experience_recipe["exclude"]
+            experience_recipe.get("include"),
+            experience_recipe.get("exclude")
         )
 
         experiences.append(EXP_TEMPL.format(
@@ -137,7 +150,9 @@ def build_education(recipe):
             content=render_indented_points(
                 education["points"],
                 -1, 
-                education_recipe["exclude"])
+                education_recipe.get("include"),
+                education_recipe.get("exclude")
+            )
         ))
 
     return "".join(educations)
@@ -164,14 +179,16 @@ def main():
     os.makedirs("build/resume", exist_ok=True)
     shutil.copyfile("templates/awesome-cv.cls", "build/awesome-cv.cls")
 
-    with open("build/resume.tex", "w") as out_file:
-        content = ""
+    entry_point_content = RESUME_TEMPL.format(
+        content="".join([
+            IMPORT_TOKEN.format(name=section[0]) 
+            for section in SECTIONS 
+            if recipe[section[0]]
+        ])
+    )
 
-        for section in SECTIONS:
-            if recipe[section[0]]:
-                content += IMPORT_TOKEN.format(name=section[0])
-        
-        out_file.write(RESUME_TEMPL.format(content=content))
+    with open("build/resume.tex", "w") as f:
+        f.write(entry_point_content)
 
     for section in SECTIONS:
         content = SECTION_TEMPL.format(
