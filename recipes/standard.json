@@ -1,0 +1,58 @@
+{
+  "summary": "broad",
+  "position": "Aspiring Software Developer",
+  "skills": [
+    {
+      "name": "Languages",
+      "content": [
+        "web",
+        "typescript",
+        "py",
+        "java",
+        "asm",
+        "cob",
+        "jcl",
+        "php",
+        "bash",
+        "c",
+        "rust",
+        "sql"
+      ]
+    },
+    {
+      "name": "Frameworks and Libraries",
+      "content": ["react", "next", "laravel", "tailwind"]
+    },
+    {
+      "name": "Other Technologies",
+      "content": ["git", "gh", "linux", "ispf", "zowe"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "retjobs",
+      "exclude": ["crypto", "overview2"]
+    },
+    {
+      "name": "lightspeed",
+      "exclude": []
+    }
+  ],
+  "experience": [
+    {
+      "name": "ta",
+      "title": "name2",
+      "exclude": ["teach", "softwaregeneric", "respond", "ispf", "errors"]
+    }
+  ],
+  "education": [
+    {
+      "name": "compscibs",
+      "exclude": ["courseworkbrief", "asm", "os", "preos"]
+    },
+    {
+      "name": "psycbs",
+      "exclude": ["lab", "phil"]
+    }
+  ]
+}

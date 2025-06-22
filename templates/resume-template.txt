@@ -52,7 +52,7 @@
 % Available options: circle|rectangle,edge/noedge,left/right
 % \photo[rectangle,edge,right]{{./examples/profile}}
 \name{{Ryan}}{{Groch}}
-\position{{Aspiring Software Developer}}
+\position{{{position}}}
 
 \mobile{{(+1) 847-909-6912}}
 \email{{ryan.w.groch@gmail.com}}

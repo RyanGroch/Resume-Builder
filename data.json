@@ -15,12 +15,14 @@
     "java": "Java",
     "php": "PHP",
     "sql": "SQL",
-    "c#": "C#",
+    "c#": "C\\#",
     "rust": "Rust",
     "react": "React.js",
     "next": "Next.js",
     "laravel": "Laravel",
+    "aspnet": "ASP.NET",
     "tailwind": "TailwindCSS",
+    "sass": "SASS/SCSS",
     "ispf": "ISPF (Vista TN3270 Terminal Emulator)",
     "zowe": "Zowe",
     "git": "Git",
@@ -36,6 +38,7 @@
       "tech": "Next.js, TypeScript, React.js, TailwindCSS, Rust",
       "points": {
         "overview": "Developed a web application enabling users to interact with mainframe held queues by listing, downloading, and purging job outputs via FTP.",
+        "overview2": "Developed a web application enabling users to download program output from mainframes via FTP.",
         "users": "Successfully serves the needs of 100+ users, maintaining consistent uptime with no reported issues.",
         "crypto": "Uses AES-256 encryption to store mainframe credentials in a non-plaintext format.",
         "deployment": "Easily deploys to several serverless environments with no configuration.",
@@ -96,7 +99,7 @@
       "date": "March 2022",
       "link": "ryangroch.github.io/sudoku-v2/",
       "href": "https://ryangroch.github.io/sudoku-v2/",
-      "tech": "TypeScript, React.js",
+      "tech": "Vanilla JavaScript, SCSS",
       "points": {
         "overview": "Used recursive backtracking to write algorithms to generate and solve random Sudoku puzzles.",
         "ui": "Created a user interface to allow the user to play through the puzzles.",
@@ -108,21 +111,22 @@
   "experience": {
     "ta": {
       "name": "Teaching Assistant - Assembly Language/COBOL",
-      "name2": "Teaching Assistant - Assembly Language (S/370) and Enterprise Application Environments (JCL, COBOL, S/370)",
+      "name2": "Teaching Assistant - Assembly Language (S/370) and Enterprise Application Environments (JCL/COBOL/Assembly)",
       "employer": "Northern Illinois University",
       "date": "August 2024 - May 2025",
       "points": {
         "teach": "Provided individualized instruction and support to students.",
         "preteach2": "Provided individualized instruction to students as needed. Assisted students with issues such as:",
         "teach2": {
+          "errors": "Understanding compiler errors.",
           "debug": "Learning how to debug.",
           "ispf": "Learning to use ISPF.",
           "abends": "ABENDs (in both COBOL and Assembly) and JCL errors.",
-          "software": "Software installation (Vista TN3270, Zowe)."
+          "software": "Software installation (Vista TN3270, Zowe).",
+          "softwaregeneric": "Software installation (Editors/IDEs)."
         },
         "respond": "Answered student inquiries and communicated via email or video/voice calls.",
-        "grade": "Graded all programming assignments.",
-        "software": "Installing software required for the course."
+        "grade": "Graded all programming assignments."
       }
     }
   },
@@ -130,33 +134,28 @@
     "compscibs": {
       "degree": "B.S. in Computer Science",
       "institution": "Northern Illinois University",
-      "location": "Palatine, IL (Harper College)",
-      "date": "January 2024 - May 2025",
-      "notation": "standard",
-      "points": {
-        "gpa": "GPA: 4.0; Graduated with honors; summa cum laude.",
-        "courses": "Relevant Coursework: Programming in C++, Unix \\& Networking"
-      }
-    },
-    "compscibs2": {
-      "degree": "B.S. in Computer Science",
-      "institution": "Northern Illinois University",
-      "location": "Palatine, IL (Harper College)",
+      "location": "DeKalb, IL",
       "date": "January 2024 - May 2025",
       "notation": "custom",
       "points": {
+        "gpa": "GPA: 4.0; Summa cum laude.",
+        "courseworkbrief": "Relevant Coursework: Programming in C++, Unix \\& Networking",
         "precoursework": "Relevant Coursework:",
         "coursework": {
-          "asm": "Intro to Assembly Language (S/370).",
-          "enterprise": "Enterprise Application Environments (JCL, COBOL, High-Level Assembly).",
+          "databases": "Software Engineering \\& Databases (Agile Development, SQL, PHP).",
+          "datastructs": "Data Structures \\& Algorithms (C++, Big O analysis).",
+          "unix": "Unix, Networking, Security (Bash, Linux, C/C++).",
+          "asm": "Assembly Language (S/370).",
+          "enterprise": "Enterprise Application Environments (JCL, COBOL, High-Level S/370 Assembly).",
+          "arch": "Computer Architecture (C++, RISC-V Assembly).",
+          "ossingle": "Operating Systems (Emphasis on process scheduling, locks/mutexes/events, virtual memory).",
           "preos": "Operating Systems.",
           "os": {
-            "java": "Includes writing a mock operating system in Java with a process scheduler and access controls.",
-            "asm": "Includes writing programs in a fictional assembly language to demonstrate the functionality of the operating system."
+            "javaos": "Included writing a mock operating system in Java with a process scheduler and access controls.",
+            "asmos": "Included writing programs in a fictional assembly language to demonstrate the functionality of the operating system."
           },
-          "databases": "Databases (SQL).",
-          "unix": "Unix \\& Networking (Bash, Linux).",
-          "c": "Introductory \\& Intermediate C++"
+          "java": "Intermediate Java (Emphasis on networking \\& multithreading).",
+          "c": "Introductory \\& Intermediate C++."
         }
       }
     },
@@ -167,9 +166,9 @@
       "date": "August. 2017 - December. 2020",
       "notation": "standard",
       "points": {
-        "gpa": "GPA: 4.0; Graduated with honors; summa cum laude.",
+        "gpa": "GPA: 4.0; Graduated with honors; Summa cum laude.",
         "courses": "Relevant Coursework: Data Science (Python \\& R), Probability \\& Statistics, Calculus I - Calculus III.",
-        "phil": "Minor in philosophy",
+        "phil": "Minor in philosophy.",
         "lab": "Worked in a university neuroscience lab (August 2019 - March 2020).",
         "band": "Participated in eight years of marching band (high school \\& college)."
       }

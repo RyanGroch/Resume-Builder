@@ -1,0 +1,60 @@
+{
+  "summary": null,
+  "position": "Aspiring Web Developer",
+  "skills": [
+    {
+      "name": "Languages",
+      "content": [
+        "web",
+        "typescript",
+        "php",
+        "py",
+        "c#",
+        "sass",
+        "java",
+        "bash",
+        "c",
+        "sql"
+      ]
+    },
+    {
+      "name": "Frameworks and Libraries",
+      "content": ["react", "next", "laravel", "aspnet", "tailwind"]
+    },
+    {
+      "name": "Other Technologies",
+      "content": ["git", "gh", "linux"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "retjobs",
+      "exclude": ["crypto", "overview"]
+    },
+    {
+      "name": "lightspeed",
+      "exclude": []
+    },
+    {
+      "name": "sudoku",
+      "exclude": ["deployment", "utils"]
+    }
+  ],
+  "experience": [
+    {
+      "name": "ta",
+      "title": "name",
+      "exclude": ["teach", "software", "respond", "ispf", "abends"]
+    }
+  ],
+  "education": [
+    {
+      "name": "compscibs",
+      "exclude": ["courseworkbrief", "os", "preos", "enterprise"]
+    },
+    {
+      "name": "psycbs",
+      "exclude": ["lab", "phil"]
+    }
+  ]
+}

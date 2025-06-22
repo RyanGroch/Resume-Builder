@@ -7,7 +7,6 @@ from pathlib import Path
 
 
 DATA = json.loads(Path("data.json").read_text())
-RECIPES = json.loads(Path("recipes.json").read_text())
 
 RESUME_TEMPL = Path("templates/resume-template.txt").read_text()
 SECTION_TEMPL = Path("templates/section-template.txt").read_text()
@@ -15,10 +14,10 @@ PROJECT_TEMPL = Path("templates/project-template.txt").read_text()
 EXP_TEMPL = Path("templates/experience-template.txt").read_text()
 EDU_TEMPL = Path("templates/education-template.txt").read_text()
 
-IMPORT_TOKEN = "\input{{resume/{name}.tex}}\n"
+IMPORT_TOKEN = "\\input{{resume/{name}.tex}}\n"
 BOLD_ITEM_TOKEN = "\\textbf{{{skill_category}}}: {content}"
 BULLET_ITEM_TOKEN = "\\item {{{item}}}"
-INDENTED_BULLET_ITEM_TOKEN = "\hspace{{{space}}} \\bullet \hspace{{1mm}} {item}"
+INDENTED_BULLET_ITEM_TOKEN = "\\hspace{{{space}}} \\bullet \\hspace{{1mm}} {item}"
 LINE_BREAK_TOKEN = " \\\\ \n"
 NEWLINE_TOKEN = " \\newline\n" + 8 * " "
 
@@ -35,21 +34,21 @@ PARAGRAPH = "cvparagraph"
 ENTRIES = "cventries"
 
 
-def render_indented_points(point, indent_level, include, exclude):
+def render_indented_points(point, include, exclude, indent_level=-1):
     if isinstance(point, dict):
-        loop_thru = point.items() if include is None else [
+        included_points = point.items() if include is None else [
             (key, point[key]) for key in include 
             if point.get(key) is not None
-        ] 
+        ]
 
         return NEWLINE_TOKEN.join([
             render_indented_points(
                 value, 
-                indent_level + 1, 
                 include,
-                exclude
+                exclude,
+                indent_level + 1, 
             )
-            for key, value in loop_thru
+            for key, value in included_points
             if key not in exclude
         ])
     
@@ -63,6 +62,9 @@ def render_indented_points(point, indent_level, include, exclude):
 
 
 def build_summary(recipe):
+    if "summary" not in recipe or not recipe["summary"]:
+        return ""
+
     return DATA["summaries"][recipe["summary"]]
 
 
@@ -88,7 +90,6 @@ def build_projects(recipe):
 
         points = render_indented_points(
             project["points"],
-            -1, 
             project_recipe.get("include"),
             project_recipe.get("exclude")
         )
@@ -122,13 +123,12 @@ def build_experience(recipe):
 
         points_str = render_indented_points(
             experience["points"],
-            -1,
             experience_recipe.get("include"),
             experience_recipe.get("exclude")
         )
 
         experiences.append(EXP_TEMPL.format(
-            name=experience["name"],
+            name=experience[experience_recipe["title"]],
             employer=experience["employer"],
             date=experience["date"],
             content=points_str
@@ -149,7 +149,6 @@ def build_education(recipe):
             date=education["date"],
             content=render_indented_points(
                 education["points"],
-                -1, 
                 education_recipe.get("include"),
                 education_recipe.get("exclude")
             )
@@ -173,13 +172,23 @@ def main():
         return
     
     recipe_name = sys.argv[1]
-    recipe = RECIPES[recipe_name]
+    recipe_path = f"recipes/{recipe_name}.json"
+
+    try:
+        recipe = json.loads(Path(recipe_path).read_text())
+
+    except FileNotFoundError:
+        print(f"Unrecognized recipe: {recipe_name}")
+        return
+    
+    recipe = json.loads(Path(recipe_path).read_text())
 
     shutil.rmtree("build", ignore_errors=True)
     os.makedirs("build/resume", exist_ok=True)
     shutil.copyfile("templates/awesome-cv.cls", "build/awesome-cv.cls")
 
     entry_point_content = RESUME_TEMPL.format(
+        position=recipe["position"],
         content="".join([
             IMPORT_TOKEN.format(name=section[0]) 
             for section in SECTIONS 
