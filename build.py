@@ -5,15 +5,17 @@ import shutil
 import subprocess
 from pathlib import Path
 
-
+# Contains all of the resume components
 DATA = json.loads(Path("data.json").read_text())
 
+# Templates for sections of LaTeX files
 RESUME_TEMPL = Path("templates/resume-template.txt").read_text()
 SECTION_TEMPL = Path("templates/section-template.txt").read_text()
 PROJECT_TEMPL = Path("templates/project-template.txt").read_text()
 EXP_TEMPL = Path("templates/experience-template.txt").read_text()
 EDU_TEMPL = Path("templates/education-template.txt").read_text()
 
+# Single-line templates for import statements, bullet points, etc.
 IMPORT_TOKEN = "\\input{{resume/{name}.tex}}\n"
 BOLD_ITEM_TOKEN = "\\textbf{{{skill_category}}}: {content}"
 BULLET_ITEM_TOKEN = "\\item {{{item}}}"
@@ -21,6 +23,7 @@ INDENTED_BULLET_ITEM_TOKEN = "\\hspace{{{space}}} \\bullet \\hspace{{1mm}} {item
 LINE_BREAK_TOKEN = " \\\\ \n"
 NEWLINE_TOKEN = " \\newline\n" + 8 * " "
 
+# Describes the levels of indent that a bullet point can have
 INDENT_HIERARCHY = [
     None,
     "1mm",
@@ -29,17 +32,47 @@ INDENT_HIERARCHY = [
     "13mm"
 ]
 
-# Section types
+# Section types - defined by Awesome CV for formatting purposes
 PARAGRAPH = "cvparagraph"
 ENTRIES = "cventries"
 
 
 def render_indented_points(point, include, exclude, indent_level=-1):
+    """Forms a string containing LaTeX code to produce indented bullet points.
+
+    Arguments:
+
+    point -- A string or a dictionary. Strings will be converted to
+        LaTeX code. Dictionaries indicate that the level of indentation
+        will be increased. Dictionaries may include additional strings
+        or other dictionaries, and are processed recursively.
+
+    include -- A list containing the dictionary keys of the bullet
+        points that this function should render. Can also be None.
+        If it's a list, then only the bullet points in that list
+        will be converted to LaTeX code. If it's None, 
+        then by default all bullet points will be included.
+
+    exclude -- A list containing dictionary keys of the bullet
+        points that this function should NOT render. Can also
+        be None. If it's None, then all of the points in the
+        include list will be rendered to LaTeX. Exclude takes
+        higher precendence over the include list.
+
+    indent_level -- An integer representing an index of the
+        INDENT_HIERARCHY array. 
+    """
     if isinstance(point, dict):
-        included_points = point.items() if include is None else [
+        included_points = point.items() if not include else [
             (key, point[key]) for key in include 
             if point.get(key) is not None
         ]
+
+        if exclude:
+            included_points = filter(
+                lambda curr_point: curr_point[0] not in exclude,
+                included_points 
+            )
 
         return NEWLINE_TOKEN.join([
             render_indented_points(
@@ -48,8 +81,7 @@ def render_indented_points(point, include, exclude, indent_level=-1):
                 exclude,
                 indent_level + 1, 
             )
-            for key, value in included_points
-            if key not in exclude
+            for _, value in included_points
         ])
     
     if INDENT_HIERARCHY[indent_level] is None:
@@ -62,6 +94,7 @@ def render_indented_points(point, include, exclude, indent_level=-1):
 
 
 def build_summary(recipe):
+    """Generates LaTeX code for the 'Summary' section of the resume."""
     if "summary" not in recipe or not recipe["summary"]:
         return ""
 
@@ -69,6 +102,7 @@ def build_summary(recipe):
 
 
 def build_skills(recipe):
+    """Generates LaTeX code for the 'Skills' section of the resume."""
     return LINE_BREAK_TOKEN.join(
         map(lambda section: 
             BOLD_ITEM_TOKEN.format(
@@ -83,6 +117,7 @@ def build_skills(recipe):
 
 
 def build_projects(recipe):
+    """Generates LaTeX code for the 'Projects' section of the resume."""
     projects = []
         
     for project_recipe in recipe["projects"]:
@@ -117,6 +152,7 @@ def build_projects(recipe):
 
 
 def build_experience(recipe):
+    """Generates LaTeX code for the 'Experience' section of the resume."""
     experiences = []
     for experience_recipe in recipe["experience"]:
         experience = DATA["experience"][experience_recipe["name"]]
@@ -138,6 +174,7 @@ def build_experience(recipe):
 
 
 def build_education(recipe):
+    """Generates LaTeX code for the 'Education' section of the resume."""
     educations = []
     for education_recipe in recipe["education"]:
         education = DATA["education"][education_recipe["name"]]
@@ -157,6 +194,12 @@ def build_education(recipe):
     return "".join(educations)
 
 
+# Allows us to loop through and build each of the sections
+# Indices:
+# 0 => Internal name/File name
+# 1 => Printed name on the resume
+# 2 => Whether the section is a paragraph or has "entries"
+# 3 => Callback function to generate the LaTeX for the section
 SECTIONS = [
     ("summary", "Objective", PARAGRAPH, build_summary),
     ("skills", "Skills", PARAGRAPH, build_skills),
@@ -167,6 +210,7 @@ SECTIONS = [
 
 
 def main():
+    """Generates and compiles the various pieces of the resume."""
     if len(sys.argv) < 2:
         print("Usage: python3 build.py recipe")
         return
@@ -174,19 +218,22 @@ def main():
     recipe_name = sys.argv[1]
     recipe_path = f"recipes/{recipe_name}.json"
 
+    # Load information for the specific resume
+    # that we want to compile
     try:
         recipe = json.loads(Path(recipe_path).read_text())
 
     except FileNotFoundError:
         print(f"Unrecognized recipe: {recipe_name}")
         return
-    
-    recipe = json.loads(Path(recipe_path).read_text())
 
+    # Create fresh LaTeX project structure
     shutil.rmtree("build", ignore_errors=True)
     os.makedirs("build/resume", exist_ok=True)
     shutil.copyfile("templates/awesome-cv.cls", "build/awesome-cv.cls")
 
+    # Generate entry point LaTeX code, which imports
+    # all of the individual sections
     entry_point_content = RESUME_TEMPL.format(
         position=recipe["position"],
         content="".join([
@@ -196,9 +243,12 @@ def main():
         ])
     )
 
+    # Write the entry point file
     with open("build/resume.tex", "w") as f:
         f.write(entry_point_content)
 
+    # Write each of the LaTeX files
+    # for the individual sections
     for section in SECTIONS:
         content = SECTION_TEMPL.format(
             section_name=section[1],
@@ -209,6 +259,8 @@ def main():
         with open(f"build/resume/{section[0]}.tex", "w") as f: 
             f.write(content)
 
+    # After the LaTeX code has been generated,
+    # compile it into a resume
     subprocess.run(["xelatex", "resume.tex"], cwd="./build")
 
 
