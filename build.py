@@ -63,7 +63,7 @@ def render_indented_points(point, include, exclude, indent_level=-1):
         INDENT_HIERARCHY array. 
     """
     if isinstance(point, dict):
-        included_points = point.items() if not include else [
+        included_points = point.items() if include is None else [
             (key, point[key]) for key in include 
             if point.get(key) is not None
         ]
@@ -103,17 +103,15 @@ def build_summary(recipe):
 
 def build_skills(recipe):
     """Generates LaTeX code for the 'Skills' section of the resume."""
-    return LINE_BREAK_TOKEN.join(
-        map(lambda section: 
-            BOLD_ITEM_TOKEN.format(
-                skill_category=section["name"],
-                content=", ".join(
-                    [DATA["skills"][skill] for skill in section["content"]]
+    return LINE_BREAK_TOKEN.join([
+                BOLD_ITEM_TOKEN.format(
+                    skill_category=section["name"],
+                    content=", ".join(
+                        [DATA["skills"][skill] for skill in section["content"]]
+                    )
                 )
-            ),
-            recipe["skills"]
-        )
-    )
+                for section in recipe["skills"]
+            ])
 
 
 def build_projects(recipe):
