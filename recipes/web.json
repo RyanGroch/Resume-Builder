@@ -29,32 +29,51 @@
   "projects": [
     {
       "name": "retjobs",
-      "exclude": ["crypto", "overview"]
+      "include": ["overview2", "users", "deployment", "desktop"]
     },
     {
       "name": "lightspeed",
-      "exclude": []
+      "include": ["overview", "stripe", "deployment"]
     },
     {
       "name": "sudoku",
-      "exclude": ["deployment", "utils"]
+      "include": ["overview", "ui"]
     }
   ],
   "experience": [
     {
       "name": "ta",
       "title": "name",
-      "exclude": ["teach", "software", "respond", "ispf", "abends"]
+      "include": [
+        "preteach2",
+        "teach2",
+        "errors",
+        "debug",
+        "softwaregeneric",
+        "grade"
+      ]
     }
   ],
   "education": [
     {
       "name": "compscibs",
-      "exclude": ["courseworkbrief", "os", "preos", "enterprise"]
+      "include": [
+        "gpa",
+        "precoursework",
+        "coursework",
+        "databases",
+        "datastructs",
+        "unix",
+        "asm",
+        "arch",
+        "ossingle",
+        "java",
+        "c"
+      ]
     },
     {
       "name": "psycbs",
-      "exclude": ["lab", "phil"]
+      "include": ["gpa", "courses", "band"]
     }
   ]
 }
