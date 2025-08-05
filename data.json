@@ -20,7 +20,7 @@
     "react": "React.js",
     "next": "Next.js",
     "laravel": "Laravel",
-    "aspnet": "ASP.NET",
+    "aspnet": "ASP.NET Core",
     "wp": "WordPress",
     "tailwind": "TailwindCSS",
     "sass": "SASS/SCSS",
@@ -68,6 +68,20 @@
         "overview": "Developed a full-stack web application which allows users to create customized versions of a product with interchangable options.",
         "stripe": "Integrated Stripe API for payment transactions.",
         "deployment": "Deployed the project to a Linux server via SSH."
+      }
+    },
+    "smallurl": {
+      "name": "SmallURL",
+      "date": "July 2025 - Present",
+      "link": "smallurl.runasp.net",
+      "href": "http://smallurl.runasp.net/",
+      "tech": "C\\#, ASP.NET Core (Razor Pages), Entity Framework, Vanilla HTML/CSS/JavaScript",
+      "points": {
+        "overview": "Implemented a link shortener (comparable to TinyURL or Bit.ly) using ASP.NET Core.",
+        "crud": "Included CRUD (Create, Read, Update, Delete) functionality for shortened links.",
+        "auth": "Added user authentication and authorization using ASP.NET Core Identity.",
+        "mssql": "Used an MSSQL database with Entity Framework to store links and user information.",
+        "qr": "Implemented the ability to generate QR codes for shortened links."
       }
     },
     "imgcrop": {

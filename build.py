@@ -17,7 +17,7 @@ EDU_TEMPL = Path("templates/education-template.txt").read_text()
 
 # Single-line templates for import statements, bullet points, etc.
 IMPORT_TOKEN = "\\input{{resume/{name}.tex}}\n"
-BOLD_ITEM_TOKEN = "\\textbf{{{skill_category}}}: {content}"
+BOLD_ITEM_TOKEN = "\\textbf{{{skill_category}:}} {content}"
 BULLET_ITEM_TOKEN = "\\item {{{item}}}"
 INDENTED_BULLET_ITEM_TOKEN = "\\hspace{{{space}}} \\bullet \\hspace{{1mm}} {item}"
 LINE_BREAK_TOKEN = " \\\\ \n"
@@ -130,7 +130,7 @@ def build_projects(recipe):
         if project["tech"]:
             tech = BULLET_ITEM_TOKEN.format(
                 item=BOLD_ITEM_TOKEN.format(
-                    skill_category="Technologies:",
+                    skill_category="Technologies",
                     content=project["tech"]
                 )
             )

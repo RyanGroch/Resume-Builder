@@ -7,9 +7,9 @@
       "content": [
         "web",
         "typescript",
+        "c#",
         "php",
         "py",
-        "c#",
         "sass",
         "java",
         "bash",
@@ -29,15 +29,15 @@
   "projects": [
     {
       "name": "retjobs",
-      "include": ["overview2", "users", "deployment", "desktop"]
+      "include": ["overview2", "users", "desktop"]
+    },
+    {
+      "name": "smallurl",
+      "include": ["overview", "auth", "mssql", "qr"]
     },
     {
       "name": "lightspeed",
-      "include": ["overview", "stripe", "deployment"]
-    },
-    {
-      "name": "sudoku",
-      "include": ["overview", "ui"]
+      "include": ["overview", "stripe"]
     }
   ],
   "experience": [

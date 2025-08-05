@@ -8,6 +8,7 @@
         "web",
         "typescript",
         "py",
+        "c#",
         "java",
         "asm",
         "cob",
@@ -15,7 +16,6 @@
         "php",
         "bash",
         "c",
-        "rust",
         "sql"
       ]
     },
