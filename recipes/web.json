@@ -23,7 +23,7 @@
     },
     {
       "name": "Other Technologies",
-      "content": ["git", "gh", "linux"]
+      "content": ["git", "gh", "docker", "linux"]
     }
   ],
   "projects": [

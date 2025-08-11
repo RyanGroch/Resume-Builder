@@ -1,5 +1,5 @@
 {
-  "summary": "broad",
+  "summary": null,
   "position": "Aspiring Software Engineer",
   "skills": [
     {
@@ -9,11 +9,8 @@
         "typescript",
         "py",
         "c#",
-        "java",
-        "asm",
-        "cob",
-        "jcl",
         "php",
+        "java",
         "bash",
         "c",
         "sql"
@@ -21,29 +18,39 @@
     },
     {
       "name": "Frameworks and Libraries",
-      "content": ["react", "next", "laravel", "tailwind"]
+      "content": ["react", "next", "laravel", "aspnet"]
     },
     {
       "name": "Other Technologies",
-      "content": ["git", "gh", "linux", "docker", "ispf", "zowe"]
+      "content": ["git", "gh", "docker", "linux"]
     }
   ],
   "projects": [
     {
       "name": "retjobs",
-      "include": ["overview", "users", "deployment", "desktop"]
+      "include": ["overview2", "users", "desktop"]
     },
     {
-      "name": "lightspeed",
-      "include": ["overview", "stripe", "deployment"]
+      "name": "smallurl",
+      "include": ["overview", "auth", "mssql", "qr"]
+    },
+    {
+      "name": "autoscript",
+      "include": ["overview", "spec"]
     }
   ],
-
   "experience": [
     {
       "name": "ta",
-      "title": "name2",
-      "include": ["preteach2", "teach2", "debug", "abends", "software", "grade"]
+      "title": "name",
+      "include": [
+        "preteach2",
+        "teach2",
+        "errors",
+        "debug",
+        "softwaregeneric",
+        "grade"
+      ]
     }
   ],
   "education": [
@@ -56,7 +63,7 @@
         "databases",
         "datastructs",
         "unix",
-        "enterprise",
+        "asm",
         "arch",
         "ossingle",
         "java",

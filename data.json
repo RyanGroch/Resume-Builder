@@ -28,7 +28,8 @@
     "zowe": "Zowe",
     "git": "Git",
     "gh": "GitHub",
-    "linux": "Linux"
+    "linux": "Linux",
+    "docker": "Docker"
   },
   "projects": {
     "retjobs": {
@@ -51,7 +52,7 @@
       "date": "January 2024 - May 2024",
       "link": "github.com/RyanGroch/autoscript",
       "href": "https://github.com/RyanGroch/autoscript/",
-      "tech": "Shell Script (Bash)",
+      "tech": "Shell Script (Bash), Linux",
       "points": {
         "overview": "Developed a tool to speed up the workflows of introductory programming students by automating keystrokes into a terminal.",
         "docs": "Wrote 3,500+ words of documentation, including installation instructions and examples.",
@@ -75,7 +76,7 @@
       "date": "July 2025 - Present",
       "link": "smallurl.runasp.net",
       "href": "http://smallurl.runasp.net/",
-      "tech": "C\\#, ASP.NET Core (Razor Pages), Entity Framework, Vanilla HTML/CSS/JavaScript",
+      "tech": "C\\#, ASP.NET Core (Razor Pages), Entity Framework, Docker, Vanilla HTML/CSS/JavaScript",
       "points": {
         "overview": "Implemented a link shortener (comparable to TinyURL or Bit.ly) using ASP.NET Core.",
         "crud": "Included CRUD (Create, Read, Update, Delete) functionality for shortened links.",
