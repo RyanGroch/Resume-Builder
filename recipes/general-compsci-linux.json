@@ -35,8 +35,8 @@
       "include": ["overview", "auth", "mssql", "qr"]
     },
     {
-      "name": "autoscript",
-      "include": ["overview", "spec"]
+      "name": "lightspeed",
+      "include": ["overview", "stripe", "deployment"]
     }
   ],
   "experience": [

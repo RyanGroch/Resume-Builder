@@ -11,6 +11,7 @@
     "web": "HTML/CSS/JavaScript",
     "webfull": "HTML/CSS/JavaScript/TypeScript",
     "typescript": "TypeScript",
+    "cpp": "C++",
     "c": "C/C++",
     "java": "Java",
     "php": "PHP",
