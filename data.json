@@ -82,7 +82,9 @@
         "crud": "Included CRUD (Create, Read, Update, Delete) functionality for shortened links.",
         "auth": "Added user authentication and authorization using ASP.NET Core Identity.",
         "mssql": "Used an MSSQL database with Entity Framework to store links and user information.",
-        "qr": "Implemented the ability to generate QR codes for shortened links."
+        "dbschema": "Created a database schema for an MSSQL database to store links and associate them with users.",
+        "qr": "Implemented the ability to generate QR codes for shortened links.",
+        "docker": "Wrote custom Docker and Docker Compose configuration to containerize the application."
       }
     },
     "imgcrop": {

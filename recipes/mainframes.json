@@ -1,0 +1,82 @@
+{
+  "summary": null,
+  "position": "Aspiring Software Engineer",
+  "skills": [
+    {
+      "name": "Languages",
+      "content": [
+        "asm",
+        "cob",
+        "jcl",
+        "java",
+        "bash",
+        "py",
+        "web",
+        "c#",
+        "php",
+        "c",
+        "sql"
+      ]
+    },
+    {
+      "name": "Frameworks and Libraries",
+      "content": ["react", "next", "aspnet", "laravel"]
+    },
+    {
+      "name": "Other Technologies",
+      "content": ["ispf", "zowe", "linux", "git", "gh", "docker"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "retjobs",
+      "include": ["overview", "users", "deployment"]
+    },
+    {
+      "name": "smallurl",
+      "include": ["overview", "dbschema", "docker"]
+    },
+    {
+      "name": "autoscript",
+      "include": ["overview", "spec"]
+    }
+  ],
+
+  "experience": [
+    {
+      "name": "ta",
+      "title": "name2",
+      "include": [
+        "preteach2",
+        "teach2",
+        "ispf",
+        "errors",
+        "abends",
+        "software",
+        "grade"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "name": "compscibs",
+      "include": [
+        "gpa",
+        "precoursework",
+        "coursework",
+        "enterprise",
+        "asm",
+        "databases",
+        "datastructs",
+        "unix",
+        "arch",
+        "ossingle",
+        "java"
+      ]
+    },
+    {
+      "name": "psycbs",
+      "include": ["gpa", "courses", "band"]
+    }
+  ]
+}
