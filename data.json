@@ -42,7 +42,7 @@
       "points": {
         "overview": "Developed a web application enabling users to interact with mainframe held queues by listing, downloading, and purging job outputs via FTP.",
         "overview2": "Developed a web application enabling users to download program output from mainframes via FTP.",
-        "users": "Successfully serves the needs of 100+ users, maintaining consistent uptime with no reported issues.",
+        "users": "Reliably serves the needs of 100+ users and maintains consistent uptime with no issues.",
         "crypto": "Uses AES-256 encryption to store mainframe credentials in a non-plaintext format.",
         "deployment": "Easily deploys to several serverless environments with no configuration.",
         "desktop": "Developed a cross-platform desktop version using Rust, so that users have the choice of using a web or desktop app."

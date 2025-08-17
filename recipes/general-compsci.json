@@ -5,12 +5,12 @@
     {
       "name": "Languages",
       "content": [
-        "cpp",
+        "py",
         "c#",
         "java",
+        "cpp",
         "web",
         "typescript",
-        "py",
         "php",
         "bash",
         "sql"
@@ -28,11 +28,11 @@
   "projects": [
     {
       "name": "retjobs",
-      "include": ["overview2", "users", "desktop"]
+      "include": ["overview2", "users", "deployment"]
     },
     {
       "name": "smallurl",
-      "include": ["overview", "auth", "mssql", "qr"]
+      "include": ["overview", "auth", "mssql", "docker"]
     },
     {
       "name": "autoscript",

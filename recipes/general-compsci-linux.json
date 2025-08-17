@@ -5,12 +5,12 @@
     {
       "name": "Languages",
       "content": [
-        "cpp",
-        "c#",
-        "java",
+        "py",
         "web",
         "typescript",
-        "py",
+        "c#",
+        "java",
+        "cpp",
         "php",
         "bash",
         "sql"
@@ -32,7 +32,7 @@
     },
     {
       "name": "smallurl",
-      "include": ["overview", "auth", "mssql", "qr"]
+      "include": ["overview", "auth", "mssql", "docker"]
     },
     {
       "name": "lightspeed",
@@ -63,7 +63,6 @@
         "databases",
         "datastructs",
         "unix",
-        "asm",
         "arch",
         "ossingle",
         "java",

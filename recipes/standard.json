@@ -34,8 +34,8 @@
       "include": ["overview", "users", "deployment", "desktop"]
     },
     {
-      "name": "lightspeed",
-      "include": ["overview", "stripe", "deployment"]
+      "name": "smallurl",
+      "include": ["overview", "mssql", "docker"]
     }
   ],
 
