@@ -1,6 +1,6 @@
 {
-  "summary": "broad",
-  "position": "Aspiring Software Engineer",
+  "summary": null,
+  "position": "Aspiring System Engineer",
   "skills": [
     {
       "name": "Languages",
@@ -10,41 +10,62 @@
         "py",
         "c#",
         "java",
-        "asm",
-        "cob",
-        "jcl",
         "php",
-        "bash",
         "cpp",
         "c",
+        "bash",
+        "powershell",
         "sql"
       ]
     },
     {
       "name": "Frameworks and Libraries",
-      "content": ["react", "next", "laravel", "tailwind"]
+      "content": ["react", "next", "laravel", "aspnet"]
     },
     {
       "name": "Other Technologies",
-      "content": ["git", "gh", "linux", "docker", "ispf", "zowe"]
+      "content": [
+        "git",
+        "gh",
+        "docker",
+        "linux",
+        "mysql",
+        "nginx",
+        "ftp",
+        "ssh"
+      ]
+    },
+    {
+      "name": "Other Skills",
+      "content": ["repair"]
     }
   ],
   "projects": [
     {
       "name": "retjobs",
-      "include": ["overview", "users", "deployment", "desktop"]
+      "include": ["overview2", "users", "deployment"]
     },
     {
       "name": "smallurl",
       "include": ["overview", "mssql", "docker"]
+    },
+    {
+      "name": "lightspeed",
+      "include": ["overview", "tls", "email", "deployment"]
     }
   ],
-
   "experience": [
     {
       "name": "ta",
-      "title": "name2",
-      "include": ["preteach2", "teach2", "debug", "abends", "software", "grade"]
+      "title": "name",
+      "include": [
+        "preteach2",
+        "teach2",
+        "errors",
+        "debug",
+        "softwaregeneric",
+        "grade"
+      ]
     }
   ],
   "education": [
@@ -57,11 +78,9 @@
         "databases",
         "datastructs",
         "unix",
-        "enterprise",
         "arch",
         "ossingle",
-        "java",
-        "c"
+        "java"
       ]
     },
     {

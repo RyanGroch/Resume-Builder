@@ -8,14 +8,17 @@
     "jcl": "JCL",
     "py": "Python",
     "bash": "Shell Script (Bash)",
+    "powershell": "PowerShell",
     "web": "HTML/CSS/JavaScript",
     "webfull": "HTML/CSS/JavaScript/TypeScript",
     "typescript": "TypeScript",
     "cpp": "C++",
-    "c": "C/C++",
+    "c": "C",
     "java": "Java",
     "php": "PHP",
     "sql": "SQL",
+    "mysql": "MySQL",
+    "nginx": "Nginx",
     "c#": "C\\#",
     "rust": "Rust",
     "react": "React.js",
@@ -30,7 +33,10 @@
     "git": "Git",
     "gh": "GitHub",
     "linux": "Linux",
-    "docker": "Docker"
+    "docker": "Docker",
+    "repair": "Basic hardware repair (changing laptop batteries, reseating RAM, etc.)",
+    "ssh": "SSH",
+    "ftp": "FTP"
   },
   "projects": {
     "retjobs": {
@@ -67,8 +73,10 @@
       "href": "https://lightspeedtriggers.com",
       "tech": "PHP, Laravel, TypeScript, React.js, Stripe API, Linux",
       "points": {
-        "overview": "Developed a full-stack web application which allows users to create customized versions of a product with interchangable options.",
+        "overview": "Developed a full-stack web application which allows users to purchase customized versions of a product with interchangable options.",
         "stripe": "Integrated Stripe API for payment transactions.",
+        "email": "Configured automatic emails to send purchase receipts to customers.",
+        "tls": "Wrote Nginx server configuration to enable TLS.",
         "deployment": "Deployed the project to a Linux server via SSH."
       }
     },
@@ -77,12 +85,12 @@
       "date": "July 2025 - Present",
       "link": "smallurl.runasp.net",
       "href": "http://smallurl.runasp.net/",
-      "tech": "C\\#, ASP.NET Core (Razor Pages), Entity Framework, Docker, Vanilla HTML/CSS/JavaScript",
+      "tech": "C\\#, ASP.NET Core (Razor Pages), Entity Framework Core, Docker, Vanilla HTML/CSS/JavaScript",
       "points": {
         "overview": "Implemented a link shortener (comparable to TinyURL or Bit.ly) using ASP.NET Core.",
         "crud": "Included CRUD (Create, Read, Update, Delete) functionality for shortened links.",
         "auth": "Added user authentication and authorization using ASP.NET Core Identity.",
-        "mssql": "Used an MSSQL database with Entity Framework to store links and user information.",
+        "mssql": "Used an MSSQL database with Entity Framework Core to store links and user information.",
         "dbschema": "Created a database schema for an MSSQL database to store links and associate them with users.",
         "qr": "Implemented the ability to generate QR codes for shortened links.",
         "docker": "Wrote custom Docker and Docker Compose configuration to containerize the application."
@@ -161,7 +169,7 @@
         "courseworkbrief": "Relevant Coursework: Programming in C++, Unix \\& Networking",
         "precoursework": "Relevant Coursework:",
         "coursework": {
-          "databases": "Software Engineering \\& Databases (Agile Development, SQL, PHP).",
+          "databases": "Software Engineering \\& Databases (Agile Development, SQL, MySQL, PHP).",
           "datastructs": "Data Structures \\& Algorithms (C++, Big O analysis).",
           "unix": "Unix, Networking, Security (Bash, Linux, C/C++).",
           "asm": "Assembly Language (S/370).",

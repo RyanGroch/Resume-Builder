@@ -5,12 +5,13 @@
     {
       "name": "Languages",
       "content": [
-        "py",
         "web",
         "typescript",
+        "py",
         "c#",
         "java",
         "cpp",
+        "c",
         "php",
         "bash",
         "sql"
